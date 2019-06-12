@@ -1,6 +1,11 @@
 package com.harshgaba.loginkotlinsample.common
 
 import android.arch.lifecycle.ViewModel
+import com.harshgaba.loginkotlinsample.dagger.components.DaggerViewModelInjector
+import com.harshgaba.loginkotlinsample.dagger.components.ViewModelInjector
+import com.harshgaba.loginkotlinsample.dagger.modules.NetworkModule
+import com.harshgaba.loginkotlinsample.ui.users.UserSnippetViewModel
+import com.harshgaba.loginkotlinsample.ui.users.UsersListViewModel
 
 /**
  * Created by Harsh Gaba on 2019-06-12.
@@ -9,5 +14,21 @@ import android.arch.lifecycle.ViewModel
 
 
 abstract class BaseViewModel: ViewModel(){
-    //empty for now
-}
+    private val injector: ViewModelInjector = DaggerViewModelInjector
+        .builder()
+        .networkModule(NetworkModule)
+        .build()
+
+    init {
+        inject()
+    }
+
+    /**
+     * Injects the required dependencies
+     */
+    private fun inject() {
+        when (this) {
+            is UsersListViewModel -> injector.inject(this)
+            is UserSnippetViewModel -> injector.inject(this)
+        }
+    }}
