@@ -2,52 +2,79 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
-	<data>
+    <data>
 
-		<variable
-				name="viewModel"
-				type="com.harshgaba.loginkotlinsample.ui.users.UserSnippetViewModel"/>
-		<variable
-				name="handlers"
-				type="com.harshgaba.loginkotlinsample.ui.users.ViewUpdationHandler"/>
-	</data>
+        <variable
+                name="viewModel"
+                type="com.harshgaba.loginkotlinsample.ui.users.UserSnippetViewModel"/>
+    </data>
 
-	<android.support.v7.widget.CardView
-			android:id="@+id/item_card_view"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_margin="16dp">
-
-
-	<RelativeLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:background="#fff"
-				android:elevation="4dp"
-				android:padding="16dp">
+    <android.support.v7.widget.CardView
+            android:id="@+id/item_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/user_snippet_cardview_margin"
+            app:cardCornerRadius="@dimen/user_snippet_cardview_radius"
+            app:cardElevation="@dimen/user_snippet_cardview_elevation">
 
 
-			<TextView
-					android:id="@+id/post_title"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:textStyle="bold"
-					app:mutableText="@{viewModel.getUserFullName()}"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent"/>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:onClick="@{()->viewModel.showDetails(viewModel.getuser())}"
+                android:padding="@dimen/cardview_content_padding">
 
-			<TextView
-					android:id="@+id/post_body"
-					android:layout_below="@+id/post_title"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
-					app:mutableText="@{viewModel.getUserAddress()}"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/post_title"
-					android:onClick="@{()->handlers.expandCardView(itemCardView)}"/>
-		</RelativeLayout>
-	</android.support.v7.widget.CardView>
+
+            <TextView
+                    android:id="@+id/textview_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:singleLine="true"
+                    android:textSize="@dimen/item_full_name_text_size"
+                    app:mutableText="@{viewModel.getUserFullName()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textview_contact"
+                    android:layout_below="@+id/textview_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/item_contact_text_size"
+                    android:maxLines="2"
+                    app:mutableText="@{viewModel.getUserContact()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_full_name"
+                    android:layout_toLeftOf="@+id/imagebutton_map"/>
+
+            <TextView
+                    android:id="@+id/textview_address"
+                    android:layout_below="@+id/textview_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/item_address_text_size"
+                    android:maxLines="3"
+                    app:mutableText="@{viewModel.getUserAddress()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_contact"
+                    android:layout_toLeftOf="@+id/imagebutton_map"/>
+
+
+            <ImageButton
+                    android:id="@+id/imagebutton_map"
+                    android:layout_height="@dimen/item_button_map_height"
+                    android:layout_width="@dimen/item_button_map_width"
+                    android:layout_below="@+id/textview_contact"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="@dimen/item_button_map_margin"
+                    android:background="@drawable/icon_map_vector"
+                    android:layout_alignParentRight="true"
+                    android:onClick="@{()->viewModel.redirectToMap(viewModel.getuserCoordinates())}"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </layout>

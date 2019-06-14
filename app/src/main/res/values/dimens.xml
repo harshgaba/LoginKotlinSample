@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="user_snippet_cardview_margin">8dp</dimen>
+    <dimen name="user_snippet_cardview_radius">6dp</dimen>
+    <dimen name="user_snippet_cardview_elevation">6dp</dimen>
+    <dimen name="cardview_content_padding">8dp</dimen>
+    <dimen name="item_full_name_text_size">24sp</dimen>
+    <dimen name="item_contact_text_size">12sp</dimen>
+    <dimen name="item_address_text_size">16sp</dimen>
+    <dimen name="item_button_map_height">25dp</dimen>
+    <dimen name="item_button_map_width">25dp</dimen>
+    <dimen name="item_button_map_margin">6dp</dimen>
+</resources>

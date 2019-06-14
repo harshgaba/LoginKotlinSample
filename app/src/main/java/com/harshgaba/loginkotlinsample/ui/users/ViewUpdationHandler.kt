@@ -1,6 +1,6 @@
 package com.harshgaba.loginkotlinsample.ui.users
 
-import android.view.View
+import com.harshgaba.loginkotlinsample.models.Geo
 
 
 /**
@@ -9,5 +9,5 @@ import android.view.View
  */
 
 interface ViewUpdationHandler {
-    fun expandCardView(view: View)
+    fun redirectToMap(geo: Geo)
 }
