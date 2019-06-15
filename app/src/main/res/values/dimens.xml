@@ -10,4 +10,39 @@
     <dimen name="item_button_map_height">25dp</dimen>
     <dimen name="item_button_map_width">25dp</dimen>
     <dimen name="item_button_map_margin">6dp</dimen>
+
+    // signup
+    <dimen name="signup_layout_padding_top">56dp</dimen>
+    <dimen name="signup_layout_padding_left">24dp</dimen>
+    <dimen name="signup_layout_padding_right">24dp</dimen>
+    <dimen name="signup_app_icon_height">72dp</dimen>
+    <dimen name="signup_app_icon_margin_bottom">24dp</dimen>
+    <dimen name="signup_input_margin_top">8dp</dimen>
+    <dimen name="signup_input_margin_bottom">8dp</dimen>
+    <dimen name="signup_button_margin_top">24dp</dimen>
+    <dimen name="signup_button_margin_bottom">24dp</dimen>
+    <dimen name="signup_button_padding">12dp</dimen>
+
+
+    //login
+    <dimen name="login_layout_padding_top">56dp</dimen>
+    <dimen name="login_layout_padding_left">24dp</dimen>
+    <dimen name="login_layout_padding_right">24dp</dimen>
+    <dimen name="login_app_icon_height">72dp</dimen>
+    <dimen name="login_app_icon_margin_bottom">24dp</dimen>
+    <dimen name="login_input_margin_top">8dp</dimen>
+    <dimen name="login_input_margin_bottom">8dp</dimen>
+    <dimen name="login_button_margin_top">24dp</dimen>
+    <dimen name="login_button_margin_bottom">24dp</dimen>
+    <dimen name="login_button_padding">12dp</dimen>
+
+
+
+    <dimen name="country_icon_height">40dp</dimen>
+    <dimen name="country_icon_width">40dp</dimen>
+    <dimen name="country_text_margin_start">64dp</dimen>
+    <dimen name="country_text_margin_left">64dp</dimen>
+    <dimen name="already_account_label_text_size">16sp</dimen>
+    <dimen name="no_account_label_text_size">16sp</dimen>
+
 </resources>

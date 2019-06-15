@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.harshgaba.loginkotlinsample.ui.users.UsersListViewModel"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/login_layout_padding_top"
+                    android:paddingLeft="@dimen/login_layout_padding_left"
+                    android:paddingRight="@dimen/login_layout_padding_right">
+
+                <ImageView android:src="@drawable/icon_map_vector"
+                           android:layout_width="wrap_content"
+                           android:layout_height="@dimen/login_app_icon_height"
+                           android:layout_marginBottom="@dimen/login_app_icon_margin_bottom"
+                           android:layout_gravity="center_horizontal"/>
+
+                <!--  Email Label -->
+                <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/login_input_margin_top"
+                        android:layout_marginBottom="@dimen/login_input_margin_bottom">
+                <EditText android:id="@+id/input_email"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:inputType="textEmailAddress"
+                              android:hint="@string/hint_email"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <!--  Password Label -->
+                <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/login_input_margin_top"
+                        android:layout_marginBottom="@dimen/login_input_margin_bottom">
+                <EditText android:id="@+id/input_password"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:inputType="textPassword"
+                              android:hint="@string/hint_password"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/button_login"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/login_button_margin_top"
+                        android:layout_marginBottom="@dimen/login_button_margin_bottom"
+                        android:padding="@dimen/login_button_padding"
+                        android:text="@string/label_login"/>
+
+                <TextView android:id="@+id/textview_link_login"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="@dimen/login_button_margin_bottom"
+                          android:text="@string/label_no_account"
+                          android:gravity="center"
+                          android:textSize="@dimen/no_account_label_text_size"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </android.support.constraint.ConstraintLayout>
+</layout>

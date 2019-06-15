@@ -31,8 +31,8 @@ class UsersListAdapter : RecyclerView.Adapter<UsersListAdapter.ViewHolder>() {
         return if (::usersList.isInitialized) usersList.size else 0
     }
 
-    fun updateUsersList(postList: List<User>) {
-        this.usersList = postList
+    fun updateUsersList(usersList: List<User>) {
+        this.usersList = usersList
         notifyDataSetChanged()
     }
 
