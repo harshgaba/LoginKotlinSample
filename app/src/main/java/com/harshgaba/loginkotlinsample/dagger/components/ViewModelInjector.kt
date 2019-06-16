@@ -13,12 +13,12 @@ import javax.inject.Singleton
 @Component(modules = [(NetworkModule::class)])
 interface ViewModelInjector {
     /**
-     * Injects required dependencies into the specified PostListViewModel.
+     * Injects required dependencies into the specified UsersListViewModel.
      * @param usersListViewModel UsersListViewModel in which to inject the dependencies
      */
     fun inject(usersListViewModel: UsersListViewModel)
     /**
-     * Injects required dependencies into the specified PostViewModel.
+     * Injects required dependencies into the specified UserSnippetViewModel.
      * @param userSnippetViewModel UserSnippetViewModel in which to inject the dependencies
      */
     fun inject(userSnippetViewModel: UserSnippetViewModel)
