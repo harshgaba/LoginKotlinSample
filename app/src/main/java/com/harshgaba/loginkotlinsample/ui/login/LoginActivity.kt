@@ -15,7 +15,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_data_bind_fragment)
+        setContentView(R.layout.activity_login)
 
         supportFragmentManager.beginTransaction().add(R.id.frag_container, LoginFragment()).commit()
 

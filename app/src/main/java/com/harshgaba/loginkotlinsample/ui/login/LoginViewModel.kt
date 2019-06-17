@@ -32,7 +32,7 @@ class LoginViewModel(private val credentialsDAO: CredentialsDAO) : BaseViewModel
     var onFocusEmail: View.OnFocusChangeListener? = null
     var onFocusPassword: View.OnFocusChangeListener? = null
     private lateinit var checkCredentialsSubscription: Disposable
-    private lateinit var save: Disposable
+    private lateinit var saveDummyCredentials: Disposable
 
     @VisibleForTesting
     fun init() {
@@ -52,10 +52,10 @@ class LoginViewModel(private val credentialsDAO: CredentialsDAO) : BaseViewModel
 
 
         /**
-         * saving the hard coded Credentials
+         * saving the hard coded dummy Credentials
          * for testing purposes
          */
-        save = Observable.fromCallable {
+        saveDummyCredentials = Observable.fromCallable {
             credentialsDAO.insertCredentials(
                 Credentials(
                     "test@car.com",
@@ -68,6 +68,7 @@ class LoginViewModel(private val credentialsDAO: CredentialsDAO) : BaseViewModel
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe()
+
     }
 
     fun onButtonClick() {
@@ -152,7 +153,13 @@ class LoginViewModel(private val credentialsDAO: CredentialsDAO) : BaseViewModel
 
     override fun onCleared() {
         super.onCleared()
-        checkCredentialsSubscription.dispose()
-        save.dispose()
+        try {
+            checkCredentialsSubscription.dispose()
+            saveDummyCredentials.dispose()
+        }catch (e:Exception){
+
+        }
+
+
     }
 }

@@ -17,6 +17,10 @@
 
         <activity android:name=".ui.login.LoginActivity"
                   android:theme="@style/AppTheme.Dark">
+        </activity>
+
+        <activity android:name=".ui.SplashActivity"
+                  android:theme="@style/AppTheme.Dark">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
