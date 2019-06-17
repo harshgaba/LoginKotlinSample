@@ -22,12 +22,12 @@ class UsersListViewModel : BaseViewModel() {
 
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
     val errorMessage: MutableLiveData<Int> = MutableLiveData()
-    val errorClickListener = View.OnClickListener { loadPosts() }
+    val errorClickListener = View.OnClickListener { loadUsers() }
 
     private lateinit var usersListSubscription: Disposable
 
     init {
-        loadPosts()
+        loadUsers()
     }
 
     override fun onCleared() {
@@ -35,32 +35,32 @@ class UsersListViewModel : BaseViewModel() {
         usersListSubscription.dispose()
     }
 
-    private fun loadPosts() {
+    private fun loadUsers() {
         usersListSubscription = apiClient.getUsersList()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { onRetrievePostListStart() }
-            .doOnTerminate { onRetrievePostListFinish() }
+            .doOnSubscribe { onRetrieveUsersListStart() }
+            .doOnTerminate { onRetrieveUsersListFinish() }
             .subscribe(
-                { result -> onRetrievePostListSuccess(result) },
-                { onRetrievePostListError() }
+                { result -> onRetrieveUsersListSuccess(result) },
+                { onRetrieveUsersListError() }
             )
     }
 
-    private fun onRetrievePostListStart() {
+    private fun onRetrieveUsersListStart() {
         loadingVisibility.value = View.VISIBLE
         errorMessage.value = null
     }
 
-    private fun onRetrievePostListFinish() {
+    private fun onRetrieveUsersListFinish() {
         loadingVisibility.value = View.GONE
     }
 
-    private fun onRetrievePostListSuccess(postList: List<User>) {
+    private fun onRetrieveUsersListSuccess(postList: List<User>) {
         usersListAdapter.updateUsersList(postList)
     }
 
-    private fun onRetrievePostListError() {
+    private fun onRetrieveUsersListError() {
         errorMessage.value = R.string.error_users_list_api_failed
     }
 }

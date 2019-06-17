@@ -11,4 +11,5 @@ package com.harshgaba.loginkotlinsample.models.login
     var email: Int? = null
     var password: Int? = null
     var userName: Int? = null
+    var country: Int? = null
 }

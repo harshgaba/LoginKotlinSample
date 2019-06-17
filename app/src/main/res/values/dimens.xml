@@ -29,6 +29,7 @@
     <dimen name="login_layout_padding_left">24dp</dimen>
     <dimen name="login_layout_padding_right">24dp</dimen>
     <dimen name="login_app_icon_height">72dp</dimen>
+    <dimen name="login_app_icon_width">72dp</dimen>
     <dimen name="login_app_icon_margin_bottom">24dp</dimen>
     <dimen name="login_input_margin_top">8dp</dimen>
     <dimen name="login_input_margin_bottom">8dp</dimen>
@@ -44,5 +45,11 @@
     <dimen name="country_text_margin_left">64dp</dimen>
     <dimen name="already_account_label_text_size">16sp</dimen>
     <dimen name="no_account_label_text_size">16sp</dimen>
+    <dimen name="input_feilds_text_size">18sp</dimen>
+    <dimen name="login_button_corner_angle">50dp</dimen>
+    <dimen name="login_button_spinning_width">3dp</dimen>
+    <dimen name="login_button_label_size">24sp</dimen>
+    <dimen name="password_label_text_size">14sp</dimen>
+    <dimen name="country_picker_padding">12dp</dimen>
 
 </resources>

@@ -76,4 +76,8 @@ dependencies {
     // Room
     implementation 'androidx.room:room-runtime:2.0.0'
     kapt 'androidx.room:room-compiler:2.0.0'
+
+    //loading button
+    implementation 'br.com.simplepass:loading-button-android:2.1.4'
+
 }

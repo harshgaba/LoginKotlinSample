@@ -11,5 +11,6 @@ class LoginFields {
     var email: String? = null
     var password: String? = null
     var userName: String? = null
+    var country:String?=null
 
 }

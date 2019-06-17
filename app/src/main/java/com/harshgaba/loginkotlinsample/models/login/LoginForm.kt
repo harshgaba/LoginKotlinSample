@@ -1,10 +1,14 @@
 package com.harshgaba.loginkotlinsample.models.login
 
+import android.text.TextUtils
+import android.util.Log
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.lifecycle.MutableLiveData
 import com.harshgaba.loginkotlinsample.BR
 import com.harshgaba.loginkotlinsample.R
+
+
 
 
 /**
@@ -22,7 +26,7 @@ class LoginForm:BaseObservable(){
     public fun isValid():Boolean{
         var valid :Boolean= isEmailValid(false)
         valid = isPasswordValid(false) && valid
-        valid=isUsernameValid(false) && valid
+        valid=isCountryValid(false) && valid
         notifyPropertyChanged(BR.emailError)
         notifyPropertyChanged(BR.passwordError)
         return valid
@@ -64,7 +68,7 @@ class LoginForm:BaseObservable(){
             return true;
         } else {
             if (setMessage) {
-                errorFields.password=R.string.error_too_short
+                errorFields.password=R.string.password_too_short
                 notifyPropertyChanged(BR.valid);
             }
 
@@ -72,15 +76,15 @@ class LoginForm:BaseObservable(){
         }
     }
 
-    public fun isUsernameValid( setMessage:Boolean):Boolean {
-        var userName: String? = fields?.userName
-        if (userName != null && userName.length > 5) {
-            errorFields.userName=null
+    public fun isCountryValid( setMessage:Boolean):Boolean {
+        var country: String? = fields?.country
+        if (!TextUtils.isEmpty(country)) {
+            errorFields.country=null
             notifyPropertyChanged(BR.valid);
             return true;
         } else {
             if (setMessage) {
-                errorFields.userName=R.string.error_too_short
+                errorFields.country=R.string.invalid_country
                 notifyPropertyChanged(BR.valid);
             }
 
@@ -104,5 +108,9 @@ class LoginForm:BaseObservable(){
         return errorFields.password
     }
 
+
+    fun getLoginFields(): MutableLiveData<LoginFields> {
+        return buttonClick
+    }
 
 }

@@ -11,6 +11,13 @@
     <string name="label_already_member">Already a member? Login</string>
     <string name="label_login">Login</string>
     <string name="label_no_account">No account yet? Create one</string>
-    <string name="error_format_invalid">invalid email address</string>
-    <string name="error_too_short">email is too short</string>
+    <string name="error_format_invalid">Please enter correct Email address</string>
+    <string name="error_too_short">Email is too short</string>
+    <string name="password_too_short">Password is too short</string>
+    <string name="invalid_country">Invalid country name</string>
+    <string name="error_login_failed">Invalid Credentials! Please verify Login details </string>
+    <string name="password_hint">* Password must be longer than 5 characters</string>
+    <string name="select_country_label">Please select country</string>
+
+
 </resources>
