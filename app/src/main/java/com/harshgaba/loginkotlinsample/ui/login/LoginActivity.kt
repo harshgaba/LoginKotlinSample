@@ -11,7 +11,7 @@ import com.harshgaba.loginkotlinsample.R
  */
 
 
-class RegisterationActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

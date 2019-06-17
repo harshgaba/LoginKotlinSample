@@ -1,17 +1,17 @@
 package com.harshgaba.loginkotlinsample.ui.login
 
 import android.view.View
-import androidx.lifecycle.MutableLiveData
-import com.harshgaba.loginkotlinsample.common.BaseViewModel
-import com.harshgaba.loginkotlinsample.database.CredentialsDAO
-import com.harshgaba.loginkotlinsample.models.login.LoginForm
 import android.widget.EditText
 import androidx.annotation.VisibleForTesting
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.MutableLiveData
 import com.google.android.material.textfield.TextInputLayout
 import com.harshgaba.loginkotlinsample.R
+import com.harshgaba.loginkotlinsample.common.BaseViewModel
 import com.harshgaba.loginkotlinsample.database.Credentials
+import com.harshgaba.loginkotlinsample.database.CredentialsDAO
 import com.harshgaba.loginkotlinsample.models.login.LoginFields
+import com.harshgaba.loginkotlinsample.models.login.LoginForm
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -31,7 +31,6 @@ class LoginViewModel(private val credentialsDAO: CredentialsDAO) : BaseViewModel
     val login: LoginForm = LoginForm()
     var onFocusEmail: View.OnFocusChangeListener? = null
     var onFocusPassword: View.OnFocusChangeListener? = null
-    //    var onFocusUsername: View.OnFocusChangeListener? = null
     private lateinit var checkCredentialsSubscription: Disposable
     private lateinit var save: Disposable
 
@@ -51,6 +50,11 @@ class LoginViewModel(private val credentialsDAO: CredentialsDAO) : BaseViewModel
             }
         }
 
+
+        /**
+         * saving the hard coded Credentials
+         * for testing purposes
+         */
         save = Observable.fromCallable {
             credentialsDAO.insertCredentials(
                 Credentials(
