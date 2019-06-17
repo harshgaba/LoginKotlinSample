@@ -1,6 +1,6 @@
 package com.harshgaba.loginkotlinsample.common
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.harshgaba.loginkotlinsample.dagger.components.DaggerViewModelInjector
 import com.harshgaba.loginkotlinsample.dagger.components.ViewModelInjector
 import com.harshgaba.loginkotlinsample.dagger.modules.NetworkModule

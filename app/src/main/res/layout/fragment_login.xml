@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
 >
 
     <data>
         <variable
                 name="viewModel"
-                type="com.harshgaba.loginkotlinsample.ui.users.UsersListViewModel"/>
+                type="com.harshgaba.loginkotlinsample.ui.login.LoginViewModel"/>
     </data>
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <ScrollView
@@ -30,39 +30,50 @@
                            android:layout_gravity="center_horizontal"/>
 
                 <!--  Email Label -->
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/login_input_margin_top"
                         android:layout_marginBottom="@dimen/login_input_margin_bottom">
-                <EditText android:id="@+id/input_email"
+                    <EditText android:id="@+id/input_email"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-                              android:inputType="textEmailAddress"
-                              android:hint="@string/hint_email"/>
-                </android.support.design.widget.TextInputLayout>
+                              android:inputType="textNoSuggestions|textEmailAddress"
+                              android:text="@={viewModel.login.fields.email}"
+                              app:error="@{viewModel.login.emailError}"
+                              android:hint="@string/hint_email"
+                              app:onFocus="@{viewModel.onFocusEmail}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <!--  Password Label -->
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/login_input_margin_top"
                         android:layout_marginBottom="@dimen/login_input_margin_bottom">
-                <EditText android:id="@+id/input_password"
+                    <EditText android:id="@+id/input_password"
                               android:layout_width="match_parent"
                               android:layout_height="wrap_content"
+                              android:hint="@string/hint_password"
                               android:inputType="textPassword"
-                              android:hint="@string/hint_password"/>
-                </android.support.design.widget.TextInputLayout>
+                              android:text="@={viewModel.login.fields.password}"
+                              app:error="@{viewModel.login.passwordError}"
+                              app:onFocus="@{viewModel.onFocusPassword}" />
 
-                <android.support.v7.widget.AppCompatButton
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/button_login"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/login_button_margin_top"
                         android:layout_marginBottom="@dimen/login_button_margin_bottom"
                         android:padding="@dimen/login_button_padding"
-                        android:text="@string/label_login"/>
+                        android:text="@string/label_login"
+                        android:enabled="@{viewModel.login.valid}"
+                        android:onClick="@{() -> viewModel.onButtonClick()}"
+                />
 
                 <TextView android:id="@+id/textview_link_login"
                           android:layout_width="fill_parent"
@@ -74,5 +85,5 @@
 
             </LinearLayout>
         </ScrollView>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

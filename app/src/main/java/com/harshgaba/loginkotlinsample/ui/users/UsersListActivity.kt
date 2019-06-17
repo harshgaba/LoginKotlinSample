@@ -1,13 +1,14 @@
 package com.harshgaba.loginkotlinsample.ui.users
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.annotation.StringRes
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.annotation.StringRes
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.harshgaba.loginkotlinsample.R
 import com.harshgaba.loginkotlinsample.dagger.factory.ViewModelFactory
 import com.harshgaba.loginkotlinsample.databinding.ActivityUsersListBinding
@@ -26,9 +27,13 @@ class UsersListActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_users_list)
-        binding.postList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.usersList.layoutManager = LinearLayoutManager(
+            this,
+            RecyclerView.VERTICAL,
+            false
+        )
 
-        viewModel = ViewModelProviders.of(this, ViewModelFactory(this)).get(UsersListViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, ViewModelFactory(this.applicationContext)).get(UsersListViewModel::class.java)
         viewModel.errorMessage.observe(this, Observer {
             errorMessage -> if(errorMessage != null) showError(errorMessage) else hideError()
         })

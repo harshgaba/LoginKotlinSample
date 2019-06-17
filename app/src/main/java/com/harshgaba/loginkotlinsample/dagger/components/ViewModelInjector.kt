@@ -1,6 +1,7 @@
 package com.harshgaba.loginkotlinsample.dagger.components
 
 import com.harshgaba.loginkotlinsample.dagger.modules.NetworkModule
+import com.harshgaba.loginkotlinsample.ui.login.LoginViewModel
 import com.harshgaba.loginkotlinsample.ui.users.UserSnippetViewModel
 import com.harshgaba.loginkotlinsample.ui.users.UsersListViewModel
 import dagger.Component
@@ -22,6 +23,13 @@ interface ViewModelInjector {
      * @param userSnippetViewModel UserSnippetViewModel in which to inject the dependencies
      */
     fun inject(userSnippetViewModel: UserSnippetViewModel)
+
+
+    /**
+     * Injects required dependencies into the specified UserSnippetViewModel.
+     * @param loginViewModel LoginViewModel in which to inject the dependencies
+     */
+    fun inject(loginViewModel: LoginViewModel)
 
     @Component.Builder
     interface Builder {

@@ -1,17 +1,17 @@
 package com.harshgaba.loginkotlinsample.utils.binding
 
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Observer
-import android.databinding.BindingAdapter
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
+import androidx.databinding.BindingAdapter
 import com.harshgaba.loginkotlinsample.utils.getParentActivity
 
 @BindingAdapter("adapter")
-fun setAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>) {
+fun setAdapter(view: androidx.recyclerview.widget.RecyclerView, adapter: androidx.recyclerview.widget.RecyclerView.Adapter<*>) {
     view.adapter = adapter
 }
 

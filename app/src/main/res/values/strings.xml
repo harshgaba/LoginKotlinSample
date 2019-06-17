@@ -11,4 +11,6 @@
     <string name="label_already_member">Already a member? Login</string>
     <string name="label_login">Login</string>
     <string name="label_no_account">No account yet? Create one</string>
+    <string name="error_format_invalid">invalid email address</string>
+    <string name="error_too_short">email is too short</string>
 </resources>

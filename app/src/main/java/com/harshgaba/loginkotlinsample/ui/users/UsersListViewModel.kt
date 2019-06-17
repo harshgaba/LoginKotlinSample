@@ -1,6 +1,6 @@
 package com.harshgaba.loginkotlinsample.ui.users
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import android.view.View
 import com.harshgaba.loginkotlinsample.R
 import com.harshgaba.loginkotlinsample.common.BaseViewModel
