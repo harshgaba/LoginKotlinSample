@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.harshgaba.loginkotlinsample.dagger.components.DaggerViewModelInjector
 import com.harshgaba.loginkotlinsample.dagger.components.ViewModelInjector
 import com.harshgaba.loginkotlinsample.dagger.modules.NetworkModule
+import com.harshgaba.loginkotlinsample.ui.login.LoginViewModel
 import com.harshgaba.loginkotlinsample.ui.users.UserSnippetViewModel
 import com.harshgaba.loginkotlinsample.ui.users.UsersListViewModel
 
@@ -30,5 +31,6 @@ abstract class BaseViewModel: ViewModel(){
         when (this) {
             is UsersListViewModel -> injector.inject(this)
             is UserSnippetViewModel -> injector.inject(this)
+            is LoginViewModel -> injector.inject(this)
         }
     }}
