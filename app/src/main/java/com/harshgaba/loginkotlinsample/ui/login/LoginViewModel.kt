@@ -156,8 +156,8 @@ class LoginViewModel(private val credentialsDAO: CredentialsDAO) : BaseViewModel
         try {
             checkCredentialsSubscription.dispose()
             saveDummyCredentials.dispose()
-        }catch (e:Exception){
-
+        } catch (e: UninitializedPropertyAccessException) {
+            e.printStackTrace()
         }
 
 

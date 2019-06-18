@@ -19,5 +19,4 @@
     <string name="password_hint">* Password must be longer than 5 characters</string>
     <string name="select_country_label">Please select country</string>
 
-
 </resources>

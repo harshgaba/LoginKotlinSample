@@ -40,6 +40,8 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 
+
+
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
@@ -79,5 +81,6 @@ dependencies {
 
     //loading button
     implementation 'br.com.simplepass:loading-button-android:2.1.4'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
 }

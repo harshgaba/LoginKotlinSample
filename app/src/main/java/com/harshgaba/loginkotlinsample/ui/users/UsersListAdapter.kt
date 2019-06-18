@@ -1,6 +1,5 @@
 package com.harshgaba.loginkotlinsample.ui.users
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -13,7 +12,8 @@ import com.harshgaba.loginkotlinsample.models.User
  * harshgaba08@gmail.com
  */
 
-class UsersListAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<UsersListAdapter.ViewHolder>() {
+class UsersListAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<UsersListAdapter.ViewHolder>(){
+
 
     private lateinit var usersList: List<User>
 
@@ -36,7 +36,8 @@ class UsersListAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<Users
         notifyDataSetChanged()
     }
 
-    class ViewHolder(private val binding: UserSnippetBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: UserSnippetBinding) :
+        androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root) {
         private val viewModel = UserSnippetViewModel()
 
         fun bind(users: User) {
@@ -44,4 +45,6 @@ class UsersListAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<Users
             binding.viewModel = viewModel
         }
     }
+
+
 }

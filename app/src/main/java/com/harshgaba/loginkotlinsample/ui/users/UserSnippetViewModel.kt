@@ -1,11 +1,12 @@
 package com.harshgaba.loginkotlinsample.ui.users
 
+import android.content.Intent
 import androidx.lifecycle.MutableLiveData
-import android.text.TextUtils
-import android.util.Log
 import com.harshgaba.loginkotlinsample.common.BaseViewModel
-import com.harshgaba.loginkotlinsample.models.Geo
 import com.harshgaba.loginkotlinsample.models.User
+import com.harshgaba.loginkotlinsample.ui.map.MapsActivity
+import com.harshgaba.loginkotlinsample.utils.LAT
+import com.harshgaba.loginkotlinsample.utils.LNG
 
 
 /**
@@ -17,15 +18,22 @@ class UserSnippetViewModel : BaseViewModel() {
     private val userFullName = MutableLiveData<String>()
     private val userAddress = MutableLiveData<String>()
     private val userContact = MutableLiveData<String>()
-    private val userCoordinates = MutableLiveData<Geo>()
+    private val userLat = MutableLiveData<String>()
+    private val userLang = MutableLiveData<String>()
+    private val userCompany = MutableLiveData<String>()
+    private val userWebsite = MutableLiveData<String>()
     private val user = MutableLiveData<User>()
 
     fun bind(user: User) {
-        this.user.value=user
+        this.user.value = user
         userFullName.value = user.name
-        userAddress.value = user.address?.suite + ", " + user.address?.street +"\n"+user.address?.city
-        userContact.value=user.phone+"\n"+user.email
-        userCoordinates.value=user.address?.geo
+        userAddress.value = user.address?.suite + ", " + user.address?.street + "\n" + user.address?.city
+        userContact.value = user.phone + "\n" + user.email
+        userLat.value = user.address?.geo?.lat
+        userLang.value = user.address?.geo?.lng
+        userWebsite.value = user.website
+        userCompany.value = user.company?.name + "\n" + user.company?.bs + "\n" + user.company?.catchPhrase
+
     }
 
     fun getUserFullName(): MutableLiveData<String> {
@@ -40,30 +48,31 @@ class UserSnippetViewModel : BaseViewModel() {
         return userContact
     }
 
-    fun getuserCoordinates(): MutableLiveData<Geo> {
-        return userCoordinates
+    fun getUserLat(): MutableLiveData<String> {
+        return userLat
     }
+
+    fun getUserCompany(): MutableLiveData<String> {
+        return userCompany
+    }
+
+    fun getUserWebsite(): MutableLiveData<String> {
+        return userWebsite
+    }
+
+    fun getUserLng(): MutableLiveData<String> {
+        return userLang
+    }
+
 
     fun getuser(): MutableLiveData<User> {
         return user
     }
 
-    fun redirectToMap(geo: Geo) {
-        TODO("need to redirect to map screen")
-
-        if (null != geo && !TextUtils.isEmpty(geo.lat) && !TextUtils.isEmpty(geo.lng)) {
-            Log.i("User", " Coordinates "+geo.lat+" "+geo.lng)
-        }else{
-            Log.e("Error", "User Coordinates null");
-
-        }
-    }
-    fun showDetails(user:User){
-        if (null!=user){
-            TODO("need to redirect to user details screen")
-        }else
-        {
-            Log.e("Error: ", "Something went wrong!, User details empty")
-        }
+    fun redirectToMap(view: androidx.appcompat.widget.AppCompatImageButton, lat: String, lng: String) {
+        val intent = Intent(view.context, MapsActivity::class.java)
+        intent.putExtra(LAT, lat)
+        intent.putExtra(LNG, lng)
+        view.context.startActivity(intent)
     }
 }

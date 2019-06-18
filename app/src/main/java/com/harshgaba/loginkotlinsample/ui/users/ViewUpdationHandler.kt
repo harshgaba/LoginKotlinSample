@@ -1,7 +1,5 @@
 package com.harshgaba.loginkotlinsample.ui.users
 
-import com.harshgaba.loginkotlinsample.models.Geo
-
 
 /**
  * Created by Harsh Gaba on 2019-06-12.
@@ -9,5 +7,5 @@ import com.harshgaba.loginkotlinsample.models.Geo
  */
 
 interface ViewUpdationHandler {
-    fun redirectToMap(geo: Geo)
+    fun redirect( lat: String, lng:String)
 }
