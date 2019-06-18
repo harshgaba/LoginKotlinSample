@@ -10,13 +10,17 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     buildToolsVersion "29.0.0"
+
+    dataBinding {
+        enabled = true
+    }
     defaultConfig {
         applicationId "com.harshgaba.loginkotlinsample"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -29,23 +33,54 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 
-    // LiveData & ViewModel
-    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
-
     // Dagger 2
     implementation "com.google.dagger:dagger:$dagger2_version"
     kapt "com.google.dagger:dagger-compiler:$dagger2_version"
     compileOnly "org.glassfish:javax.annotation:3.1.1"
+
+    //Rx
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    // Constraint Layout
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    // LiveData & ViewModel
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+
+    // Data binding
+    annotationProcessor "androidx.databinding:databinding-compiler:3.4.1"
+    // Support Design
+    implementation 'com.google.android.material:material:1.0.0'
+
+
+    //country bottom sheet
+    implementation "com.hendraanggrian.appcompat:countrypicker-sheet:$country_select_version"
+
+
+    // Room
+    implementation 'androidx.room:room-runtime:2.0.0'
+    kapt 'androidx.room:room-compiler:2.0.0'
+
+    //loading button
+    implementation 'br.com.simplepass:loading-button-android:2.1.4'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
 }

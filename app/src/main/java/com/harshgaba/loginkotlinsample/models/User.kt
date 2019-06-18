@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
  * harshgaba08@gmail.com
  */
 
-class Users {
+class User {
     @SerializedName("id")
     @Expose
     var id: Int = 0
